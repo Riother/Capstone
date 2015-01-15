@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VoxelMapGenerator", "VoxelMapGenerator\VoxelMapGenerator.vcxproj", "{8FECEF69-60AF-460E-B4DF-D3E84296FCAE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VoxelRenderer", "VoxelRenderer\VoxelRenderer.vcxproj", "{9F6D7D76-5859-415D-A5A1-EE4A15B6DBC3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FECEF69-60AF-460E-B4DF-D3E84296FCAE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{8FECEF69-60AF-460E-B4DF-D3E84296FCAE}.Debug|Win32.Build.0 = Debug|Win32
+		{8FECEF69-60AF-460E-B4DF-D3E84296FCAE}.Release|Win32.ActiveCfg = Release|Win32
+		{8FECEF69-60AF-460E-B4DF-D3E84296FCAE}.Release|Win32.Build.0 = Release|Win32
+		{9F6D7D76-5859-415D-A5A1-EE4A15B6DBC3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9F6D7D76-5859-415D-A5A1-EE4A15B6DBC3}.Debug|Win32.Build.0 = Debug|Win32
+		{9F6D7D76-5859-415D-A5A1-EE4A15B6DBC3}.Release|Win32.ActiveCfg = Release|Win32
+		{9F6D7D76-5859-415D-A5A1-EE4A15B6DBC3}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
