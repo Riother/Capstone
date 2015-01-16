@@ -4,7 +4,7 @@ MapDimensionsWidget::MapDimensionsWidget()
 {
 	DimensionsLayout = new QVBoxLayout;
 
-	cameraSpeed = new LabeledSpinbox("Camera Speed", true, 1, 100, 1); 
+	cameraSpeed = new LabeledSpinbox("Camera Speed", true, 1, 100, 10); 
 	length = new LabeledSpinbox("Length", true, 1, 10, 10);
 	width  = new LabeledSpinbox("Width", true, 1, 10, 10);
 	height = new LabeledSpinbox("Height", true, 1, 10, 10);

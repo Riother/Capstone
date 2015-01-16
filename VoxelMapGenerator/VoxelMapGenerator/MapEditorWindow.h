@@ -14,6 +14,7 @@
 #include "ShapeGenerator.h"
 #include "LabeledSpinbox.h"
 #include "MapDimensionsWidget.h"
+#include "EditorWidget.h"
 #include "VoxelGroup.h"
 
 class MapEditorWindow : public QMainWindow
@@ -32,6 +33,7 @@ private:
 	QVBoxLayout* tabsLayout;
 	QVBoxLayout* rendererLayout;
 	MapDimensionsWidget* mapDimensions;
+	EditorWidget* editorWidget;
 	Cube cube;
 	GeometryInfo* cubeInfo;
 	ShaderInfo* shaderInfo;

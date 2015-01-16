@@ -68,6 +68,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Cube.cpp" />
+    <ClCompile Include="EditorWidget.cpp" />
+    <ClCompile Include="EditorWidget_moc.cpp" />
     <ClCompile Include="LabeledSpinbox.cpp" />
     <ClCompile Include="LabeledSpinbox_moc.cpp" />
     <ClCompile Include="MainWindow.cpp" />
@@ -79,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cube.h" />
+    <ClInclude Include="EditorWidget.h" />
     <ClInclude Include="LabeledSpinbox.h" />
     <ClInclude Include="MapDimensionsWidget.h" />
     <ClInclude Include="MapEditorWindow.h" />

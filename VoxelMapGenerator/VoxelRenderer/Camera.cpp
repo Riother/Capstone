@@ -3,8 +3,8 @@
 
 
 Camera::Camera(void) :
-	viewDirection(0.0f, 0.0f, 1.0f),
-	position(0.0f, 0.0f, 0.0f),
+	viewDirection(0.59636f, -0.559193f, 0.575898f),
+	position(-2.45573f, 12.1129f, -1.85308f),
 	up(0.0f, 1.0f, 0.0)
 {
 	moveDirection = glm::cross(viewDirection, up);
@@ -70,6 +70,7 @@ void Camera::update()
 	}
 
 	qDebug()<<"Camera Position: "<<position.x<<", "<<position.y<<", "<<position.z;
+	qDebug()<<"Look Direction: "<<viewDirection.x<<", "<<viewDirection.y<<", "<<viewDirection.z<<endl;
 }
 
 void Camera::moveForward()

@@ -16,7 +16,6 @@ class MapDimensionsWidget : public QWidget
 	Q_OBJECT
 	int TabIndex;
 	QVBoxLayout* DimensionsLayout;
-	QWidget* DimensionsWidget;
 	LabeledSpinbox* length;
 	LabeledSpinbox* width;
 	LabeledSpinbox* height;
