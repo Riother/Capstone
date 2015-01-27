@@ -6,16 +6,16 @@
 
 struct GeometryInfo
 {
-	GeometryInfo();
-	GeometryInfo(GLuint offset, uint numIndices, GLuint indexOffset, GLuint indexingMode, ushort* indices, unsigned int bufferID);
-	unsigned int vertexArrayID;
-	unsigned int bufferID;
-	ushort* indices;
-	uint numIndices;
 	GLuint indexingMode;
 	GLuint offset;
 	GLuint indexOffset;
+	uint numIndices;
+	unsigned int vertexArrayID;
+	unsigned int bufferID;
+	ushort* indices;
 	bool isAvailable;
+	GeometryInfo();
+	GeometryInfo(GLuint offset, uint numIndices, GLuint indexOffset, GLuint indexingMode, ushort* indices, unsigned int bufferID);
 };
 
 #endif

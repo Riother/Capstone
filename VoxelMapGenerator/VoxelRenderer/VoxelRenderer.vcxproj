@@ -74,7 +74,7 @@
     <ClInclude Include="RenderableInfo.h" />
     <ClInclude Include="RendererWindow.h" />
     <ClInclude Include="ShaderInfo.h" />
-    <ClInclude Include="VoxelGroup.h" />
+    <ClInclude Include="Voxel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
@@ -83,7 +83,7 @@
     <ClCompile Include="RendererWindow.cpp" />
     <ClCompile Include="RendererWindow_moc.cpp" />
     <ClCompile Include="ShaderInfo.cpp" />
-    <ClCompile Include="VoxelGroup.cpp" />
+    <ClCompile Include="Voxel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleFragmentShaderCode.glsl" />

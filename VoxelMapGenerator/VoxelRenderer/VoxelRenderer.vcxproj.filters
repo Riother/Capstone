@@ -42,7 +42,7 @@
     <ClInclude Include="RenderableInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VoxelGroup.h">
+    <ClInclude Include="Voxel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -65,7 +65,7 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VoxelGroup.cpp">
+    <ClCompile Include="Voxel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

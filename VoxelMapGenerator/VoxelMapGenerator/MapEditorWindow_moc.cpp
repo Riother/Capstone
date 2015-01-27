@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'MapEditorWindow.h'
 **
-** Created: Tue Jan 13 18:47:21 2015
+** Created: Tue Jan 27 00:28:05 2015
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,21 +23,31 @@ static const uint qt_meta_data_MapEditorWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+      17,   16,   16,   16, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      17,   16,   16,   16, 0x08,
+      29,   16,   16,   16, 0x08,
+      41,   16,   16,   16, 0x08,
+      51,   16,   16,   16, 0x08,
+      61,   16,   16,   16, 0x08,
+      80,   16,   16,   16, 0x08,
+      93,   16,   16,   16, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MapEditorWindow[] = {
-    "MapEditorWindow\0\0updateLoop()\0"
+    "MapEditorWindow\0\0triggered()\0saveMapAs()\0"
+    "saveMap()\0loadMap()\0loadMapFromImage()\0"
+    "updateLoop()\0updateHeight()\0"
 };
 
 void MapEditorWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -46,7 +56,13 @@ void MapEditorWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         Q_ASSERT(staticMetaObject.cast(_o));
         MapEditorWindow *_t = static_cast<MapEditorWindow *>(_o);
         switch (_id) {
-        case 0: _t->updateLoop(); break;
+        case 0: _t->triggered(); break;
+        case 1: _t->saveMapAs(); break;
+        case 2: _t->saveMap(); break;
+        case 3: _t->loadMap(); break;
+        case 4: _t->loadMapFromImage(); break;
+        case 5: _t->updateLoop(); break;
+        case 6: _t->updateHeight(); break;
         default: ;
         }
     }
@@ -85,10 +101,16 @@ int MapEditorWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 7;
     }
     return _id;
+}
+
+// SIGNAL 0
+void MapEditorWindow::triggered()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 QT_END_MOC_NAMESPACE

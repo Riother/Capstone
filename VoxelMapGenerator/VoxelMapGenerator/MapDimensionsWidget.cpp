@@ -7,12 +7,12 @@ MapDimensionsWidget::MapDimensionsWidget()
 	cameraSpeed = new LabeledSpinbox("Camera Speed", true, 1, 100, 10); 
 	length = new LabeledSpinbox("Length", true, 1, 10, 10);
 	width  = new LabeledSpinbox("Width", true, 1, 10, 10);
-	height = new LabeledSpinbox("Height", true, 1, 10, 10);
+	//height = new LabeledSpinbox("Height", true, 1, 10, 10);
 
 	DimensionsLayout->addWidget(cameraSpeed);
 	DimensionsLayout->addWidget(length);
 	DimensionsLayout->addWidget(width);
-	DimensionsLayout->addWidget(height);
+	//DimensionsLayout->addWidget(height);
 
 	setLayout(DimensionsLayout);
 	show();
@@ -20,7 +20,7 @@ MapDimensionsWidget::MapDimensionsWidget()
 	connect(cameraSpeed, SIGNAL(valueChanged()), this, SLOT(updateSpinboxes()));
 	connect(length, SIGNAL(valueChanged()),  this, SLOT(updateSpinboxes()));
 	connect(width, SIGNAL(valueChanged()),  this, SLOT(updateSpinboxes()));
-	connect(height, SIGNAL(valueChanged()),  this, SLOT(updateSpinboxes()));
+	//connect(height, SIGNAL(valueChanged()),  this, SLOT(updateSpinboxes()));
 }
 
 void MapDimensionsWidget::updateSpinboxes()
@@ -30,7 +30,7 @@ void MapDimensionsWidget::updateSpinboxes()
 
 Vector3 MapDimensionsWidget::getDimensions()
 {
-	return Vector3(width->getValue(), height->getValue(), length->getValue());
+	return Vector3(width->getValue(), 10, length->getValue());
 }
 
 int MapDimensionsWidget::getCameraSpeed()

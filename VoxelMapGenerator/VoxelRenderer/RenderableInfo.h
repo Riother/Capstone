@@ -12,16 +12,16 @@ typedef glm::vec4 Vector4;
 
 struct RenderableInfo
 {
-	RenderableInfo();
-	RenderableInfo(GeometryInfo* whatGeometry, Matrix4 whatMatrix, ShaderInfo* howShaders, bool isVisible, int textureID, Vector4 color, bool useMap);
 	GeometryInfo* whatGeometry;
 	Matrix4 whereMatrix;
+	Vector4 color;
 	ShaderInfo* howShaders;
-	bool isVisible;
 	int textureID;
+	bool isVisible;
 	bool isAvailable;
 	bool useMap;
-	Vector4 color;
+	RenderableInfo();
+	RenderableInfo(GeometryInfo* whatGeometry, Matrix4 whatMatrix, ShaderInfo* howShaders, bool isVisible, int textureID, Vector4 color, bool useMap);
 };
 
 #endif

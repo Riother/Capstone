@@ -6,6 +6,9 @@
 #include <Qt\qmainwindow.h>
 #include <QtGui\qboxlayout.h>
 #include <Qt\qmenu.h>
+#include <Qt\qmenubar.h>
+#include <Qt\qaction.h>
+#include <QtGui\qfiledialog.h>
 #include <Qt\qtimer.h>
 #include "RendererWindow.h"
 #include "ParameterType.h"
@@ -16,6 +19,14 @@
 #include "MapDimensionsWidget.h"
 #include "EditorWidget.h"
 #include "VoxelGroup.h"
+#include "Voxel.h"
+#include "fstream"
+#include "iostream"
+
+using std::ifstream;
+using std::ofstream;
+using std::ios;
+using std::string;
 
 class MapEditorWindow : public QMainWindow
 {
@@ -23,7 +34,7 @@ private:
 	QTimer timer;
 	Q_OBJECT
 
-	static const int MAX_RENDERABLES = 1000;
+	static const int MAX_CUBES = 5000;
 	static const int MAX_DIMENSION_VALUE = 10;
 
 	QWidget* mainWidget;
@@ -37,14 +48,26 @@ private:
 	Cube cube;
 	GeometryInfo* cubeInfo;
 	ShaderInfo* shaderInfo;
-	RenderableInfo* cubeRenderables[MAX_RENDERABLES];
+	Voxel cubes[MAX_CUBES];
+	GLuint textures[7];
 	VoxelGroup* voxels;
+	int cubeCount;
 	bool isVisible;
 private slots:
+	void saveMapAs();
+	void saveMap();
+	void loadMap();
+	void loadMapFromImage();
 	void updateLoop();
+	void updateHeight();
+signals:
+	void triggered();
 public:
 	MapEditorWindow();
-	void createMap();
+	void prepareAssets();
+protected:
+	void keyPressEvent(QKeyEvent* e);
+	void keyReleaseEvent(QKeyEvent* e);
 };
 
 #endif

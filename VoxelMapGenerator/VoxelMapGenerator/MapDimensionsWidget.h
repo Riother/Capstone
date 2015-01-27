@@ -18,7 +18,7 @@ class MapDimensionsWidget : public QWidget
 	QVBoxLayout* DimensionsLayout;
 	LabeledSpinbox* length;
 	LabeledSpinbox* width;
-	LabeledSpinbox* height;
+	//LabeledSpinbox* height;
 	LabeledSpinbox* cameraSpeed;
 private slots:
 	void updateSpinboxes();

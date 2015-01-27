@@ -5,19 +5,19 @@
 #include <glm\gtx\transform.hpp>
 #include <Qt\qdebug.h>
 
-typedef glm::vec2 Vector2;
-typedef glm::vec3 Vector3;
-typedef glm::mat3 Matrix3;
 typedef glm::mat4 Matrix4;
+typedef glm::mat3 Matrix3;
+typedef glm::vec3 Vector3;
+typedef glm::vec2 Vector2;
 
 class Camera
 {
-	Vector3 viewDirection;
 	const Vector3 up;
-	Vector2 oldMousePosition;
-	float Speed;
+	Vector3 viewDirection;
 	Vector3 moveDirection;
 	Vector3 position;
+	Vector2 oldMousePosition;
+	float Speed;
 public:
 	Camera();
 	Matrix4 getWorldToViewMatrix() const;

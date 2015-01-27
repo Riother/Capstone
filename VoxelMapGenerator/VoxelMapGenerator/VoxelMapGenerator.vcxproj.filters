@@ -51,6 +51,12 @@
     <ClCompile Include="EditorWidget_moc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LabeledComboBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LabeledComboBox_moc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MapEditorWindow.h">
@@ -74,6 +80,9 @@
     <ClInclude Include="EditorWidget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LabeledComboBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="SimpleFragmentShaderCode.glsl">
@@ -82,5 +91,28 @@
     <None Include="SimpleVertexShaderCode.glsl">
       <Filter>ShaderCode</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Grass.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Sand.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Stone.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Dirt.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Snow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Water.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Swamp.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

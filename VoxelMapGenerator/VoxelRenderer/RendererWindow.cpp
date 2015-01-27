@@ -2,6 +2,7 @@
 
 const int MAX_INFOS = 10;
 const int MAX_RENDERABLES = 1000;
+const int MAX_DIMENSION_VALUE = 10;
 const int MEGABYTE = 1048576;
 
 RendererWindow * RendererWindow::rendererInstance;
@@ -16,6 +17,7 @@ void RendererWindow::initializeGL()
 {
 	glewInit();
 
+	cubeCount = 0;
 	renderableCount = 0;
 	geometryCount = 0;
 	shaderCount = 0;
@@ -37,7 +39,7 @@ void RendererWindow::initializeGL()
 	connect(&updateTimer, SIGNAL(timeout()), this, SLOT(Update()));
 	updateTimer.start(0);
 	//setupFrameBuffer();
-
+	leftClick = false;
 	setMouseTracking(false);
 }
 
@@ -46,8 +48,8 @@ void RendererWindow::paintGL()
 	glViewport(0, 0, width(), height());
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	drawStuff();
-	//drawMap();
+	//drawStuff();
+	drawMap();
 }
 
 RendererWindow::RendererWindow()
@@ -323,20 +325,20 @@ void RendererWindow::drawStuff()
 			//addRenderableUniformParameter(&renderableInfos[i], "octave", ParameterType::PT_FLOAT, &octave);
 			//addRenderableUniformParameter(&renderableInfos[i], "meltingRange", ParameterType::PT_FLOAT, &meltingRange);
 
-			//if(renderableInfos[i].textureID == -1)
-			//{
-			//	//dont use image
-			//	float useImage = 0;
-			//	addRenderableUniformParameter(&renderableInfos[i], "useImage", ParameterType::PT_FLOAT, &useImage);
-			//}
-			//else
-			//{
-			//	//use image
-			//	float useImage = 1;
-			//	addRenderableUniformParameter(&renderableInfos[i], "useImage", ParameterType::PT_FLOAT, &useImage);
+			if(renderableInfos[i].textureID == -1)
+			{
+				//dont use image
+				float useImage = 0;
+				addRenderableUniformParameter(&renderableInfos[i], "useImage", ParameterType::PT_FLOAT, &useImage);
+			}
+			else
+			{
+				//use image
+				float useImage = 1;
+				addRenderableUniformParameter(&renderableInfos[i], "useImage", ParameterType::PT_FLOAT, &useImage);
 
-			//	glActiveTexture(renderableInfos[i].textureID);
-			//}
+				glActiveTexture(renderableInfos[i].textureID);
+			}
 
 			//if(renderableInfos[i].useMap)
 			//	glBindTexture(GL_TEXTURE_CUBE_MAP, renderableInfos[i].textureID);
@@ -354,15 +356,33 @@ void RendererWindow::drawMap()
 {
 	int cubeLocation = 0;
 	glUseProgram(renderableInfos[cubeLocation].howShaders->programID);
-	for(int x = 0; x < mapWidth; x++)
+	for(int i = 0; i < cubeCount; i++)
 	{
-		for(int y = 0; y < mapHeight; y++)
+		for(int j = 0; j < Cubes[i].Height; j++)
 		{
-			for(int z = 0; z < mapLength; z++)
+			if(Cubes[i].IsVisible)
 			{
-				Matrix4 whereMatrix = glm::translate(Vector3(x, y, z)) * glm::scale(glm::vec3(0.5f, 0.5f, 0.5f));
+				Matrix4 whereMatrix = glm::translate(Cubes[i].Position + Vector3(0, j, 0)) * glm::scale(glm::vec3(0.5f, 0.5f, 0.5f));
 				addRenderableUniformParameter(&renderableInfos[cubeLocation], "transformation", ParameterType::PT_MATRIX4, &(perspectiveMatrix * camera.getWorldToViewMatrix() * whereMatrix)[0][0]);
-				addRenderableUniformParameter(&renderableInfos[cubeLocation], "color", ParameterType::PT_VECTOR3, &renderableInfos[cubeLocation].color[0]);
+				addRenderableUniformParameter(&renderableInfos[cubeLocation], "cameraPosition", ParameterType::PT_VECTOR3, &camera.getPosition()[0]);
+				addRenderableUniformParameter(&renderableInfos[cubeLocation], "color", ParameterType::PT_VECTOR3, &Cubes[i].Color[0]);
+
+				if(Cubes[i].TextureID == -1)
+				{
+					//dont use image
+					float useImage = 0;
+					addRenderableUniformParameter(&renderableInfos[cubeLocation], "useImage", ParameterType::PT_FLOAT, &useImage);
+				}
+				else
+				{
+					//use image
+					float useImage = 1;
+					addRenderableUniformParameter(&renderableInfos[cubeLocation], "useImage", ParameterType::PT_FLOAT, &useImage);
+
+					glActiveTexture(Cubes[i].TextureID);
+				}
+
+				glBindTexture(GL_TEXTURE_2D, Cubes[i].TextureID);
 
 				glBindVertexArray(renderableInfos[cubeLocation].whatGeometry->vertexArrayID);
 
@@ -370,11 +390,55 @@ void RendererWindow::drawMap()
 			}
 		}
 	}
+	//for(int x = 0; x < mapWidth; x++)
+	//{
+	//	for(int y = 0; y < mapHeight; y++)
+	//	{
+	//		for(int z = 0; z < mapLength; z++)
+	//		{
+	//			if(Cubes[x * MAX_DIMENSION_VALUE * MAX_DIMENSION_VALUE + y * MAX_DIMENSION_VALUE + z].IsVisible)
+	//			{
+	//				Matrix4 whereMatrix = glm::translate(Vector3(x, -y, -z)) * glm::scale(glm::vec3(0.5f, 0.5f, 0.5f));
+	//				addRenderableUniformParameter(&renderableInfos[cubeLocation], "transformation", ParameterType::PT_MATRIX4, &(perspectiveMatrix * camera.getWorldToViewMatrix() * whereMatrix)[0][0]);
+	//				addRenderableUniformParameter(&renderableInfos[cubeLocation], "cameraPosition", ParameterType::PT_VECTOR3, &camera.getPosition()[0]);
+	//				addRenderableUniformParameter(&renderableInfos[cubeLocation], "color", ParameterType::PT_VECTOR3, &Cubes[x * MAX_DIMENSION_VALUE * MAX_DIMENSION_VALUE + y * MAX_DIMENSION_VALUE + z].Color[0]);
+
+	//				if(Cubes[x * MAX_DIMENSION_VALUE * MAX_DIMENSION_VALUE + y * MAX_DIMENSION_VALUE + z].TextureID == -1)
+	//				{
+	//					//dont use image
+	//					float useImage = 0;
+	//					addRenderableUniformParameter(&renderableInfos[cubeLocation], "useImage", ParameterType::PT_FLOAT, &useImage);
+	//				}
+	//				else
+	//				{
+	//					//use image
+	//					float useImage = 1;
+	//					addRenderableUniformParameter(&renderableInfos[cubeLocation], "useImage", ParameterType::PT_FLOAT, &useImage);
+
+	//					glActiveTexture(Cubes[x * MAX_DIMENSION_VALUE * MAX_DIMENSION_VALUE + y * MAX_DIMENSION_VALUE + z].TextureID);
+	//				}
+
+	//				glBindTexture(GL_TEXTURE_2D, Cubes[x * MAX_DIMENSION_VALUE * MAX_DIMENSION_VALUE + y * MAX_DIMENSION_VALUE + z].TextureID);
+
+	//				glBindVertexArray(renderableInfos[cubeLocation].whatGeometry->vertexArrayID);
+
+	//				glDrawElements(renderableInfos[cubeLocation].whatGeometry->indexingMode, renderableInfos[cubeLocation].whatGeometry->numIndices, GL_UNSIGNED_SHORT, (void*)(renderableInfos[cubeLocation].whatGeometry->indexOffset));
+	//			}
+	//		}
+	//	}
+	//}
+}
+
+Voxel* RendererWindow::addCube(Vector4 color, Vector3 position, GLuint textureID, int height, bool isVisible)
+{
+	Cubes[cubeCount] = Voxel(color, position, textureID, height, isVisible);
+	return &Cubes[cubeCount++];
 }
 
 void RendererWindow::Update()
 {
-	camera.update();
+	if(leftClick)
+		camera.update();
 	camera.updateCameraSpeed(cameraSpeed);
 	repaint();
 }
@@ -383,6 +447,22 @@ void RendererWindow::mouseMoveEvent(QMouseEvent* e)
 {
 	camera.mouseUpdate(Vector2(e->x(), e->y()));
 	repaint();
+}
+
+void RendererWindow::mousePressEvent(QMouseEvent* e)
+{
+	if(e->button() == Qt::LeftButton)
+	{
+		leftClick = true;
+	}
+}
+
+void RendererWindow::mouseReleaseEvent(QMouseEvent* e)
+{
+	if(e->button() == Qt::LeftButton)
+	{
+		leftClick = false;
+	}
 }
 
 void RendererWindow::updateDimensions(int length, int width, int height)
@@ -407,4 +487,9 @@ void RendererWindow::updateCameraSpeed(float newSpeed)
 int RendererWindow::getMaxRenderables()
 {
 	return MAX_RENDERABLES;
+}
+
+void RendererWindow::updateCubes(int index, Voxel cube)
+{
+	Cubes[index] = cube;
 }

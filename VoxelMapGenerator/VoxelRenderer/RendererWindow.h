@@ -17,6 +17,7 @@
 #include "ShaderInfo.h"
 #include "RenderableInfo.h"
 #include "Camera.h"
+#include "Voxel.h"
 
 using std::string;
 using std::istreambuf_iterator;
@@ -31,14 +32,19 @@ class RendererWindow : public QGLWidget
 {
 	Q_OBJECT
 
+	
 	static const int MAX_INFOS = 10;
 	static const int MAX_RENDERABLES = 1000;
-
+	static const int MAX_CUBES = 5000;
+	static const int MAX_DIMENSION_VALUE = 10;
+	Voxel Cubes[MAX_CUBES];
+	int cubeCount;
 	int mapLength;
 	int mapWidth;
 	int mapHeight;
 	float cameraSpeed;
-
+	bool leftClick;
+	
 private:
 	//Singleton
 	RendererWindow(const RendererWindow&);
@@ -80,16 +86,18 @@ public:
 	void setupFrameBuffer();
 
 	string readShaderCode(const char* fileName);
-
+	Voxel* addCube(Vector4 color, Vector3 position, GLuint textureID, int height, bool isVisible);
 	void drawStuff();
 	void drawMap();
-
-	RenderableInfo* readShape;
+//Mouse & Keyboard Inputs
 	void mouseMoveEvent(QMouseEvent* e);
+	void mousePressEvent(QMouseEvent* e);
+	void mouseReleaseEvent(QMouseEvent* e);
 	void updateDimensions(int length, int width, int height);
 	void updateDimensions(Vector3 newDimensions);
 	void updateCameraSpeed(float newSpeed);
 	int getMaxRenderables();
+	void updateCubes(int index, Voxel cube);
 private slots:
 		void Update();
 };

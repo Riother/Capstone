@@ -6,10 +6,10 @@
 
 struct ShaderInfo
 {
-	ShaderInfo();
-	ShaderInfo(GLuint programID);
 	GLuint programID;
 	bool isAvailable;
+	ShaderInfo();
+	ShaderInfo(GLuint programID);
 };
 
 #endif
