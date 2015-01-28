@@ -62,6 +62,11 @@ void EditorWidget::updateHeight()
 	emit heightChanged();
 }
 
+void EditorWidget::updateTexture()
+{
+	emit currentIndexChanged();
+}
+
 void EditorWidget::updateRowRange(int newMaxRange)
 {
 	column->setRange(1, newMaxRange);
@@ -113,27 +118,22 @@ void EditorWidget::keyUpdate()
 {
 }
 
-void EditorWidget::updateTexture()
-{
-	emit currentIndexChanged();
-}
-
 void EditorWidget::keyPressEvent(QKeyEvent* e)
 {
-	if(e->key() == Qt::Key_D && column->getValue() + 1 <= 10) 
+	if(e->key() == Qt::Key_S && column->getValue() + 1 <= 10) 
 	{
 		column->setValue(column->getValue() + 1);
 	}
-	else if(e->key() == Qt::Key_A && column->getValue() - 1 >= 1) 
+	else if(e->key() == Qt::Key_W && column->getValue() - 1 >= 1) 
 	{
 		column->setValue(column->getValue() - 1);
 	}
 
-	if(e->key() == Qt::Key_S && row->getValue() + 1 <= 10)
+	if(e->key() == Qt::Key_D && row->getValue() + 1 <= 10)
 	{
 		row->setValue(row->getValue() + 1);
 	}
-	else if(e->key() == Qt::Key_W && row->getValue() - 1 >= 1)
+	else if(e->key() == Qt::Key_A && row->getValue() - 1 >= 1)
 	{
 		row->setValue(row->getValue() - 1);
 	}

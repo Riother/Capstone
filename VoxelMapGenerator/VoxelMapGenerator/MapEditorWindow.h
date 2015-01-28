@@ -10,6 +10,7 @@
 #include <Qt\qaction.h>
 #include <QtGui\qfiledialog.h>
 #include <Qt\qtimer.h>
+#include <Qt\qinputdialog.h>
 #include "RendererWindow.h"
 #include "ParameterType.h"
 #include "Cube.h"
@@ -49,15 +50,21 @@ private:
 	GeometryInfo* cubeInfo;
 	ShaderInfo* shaderInfo;
 	Voxel cubes[MAX_CUBES];
-	GLuint textures[7];
+	QList<GLuint> textures;
 	VoxelGroup* voxels;
+	QDir projectDirectory;
+	QMenu *fileMenu;
 	int cubeCount;
+	int actionCount;
 	bool isVisible;
 private slots:
+	void newProject();
+	void openProject();
 	void saveMapAs();
 	void saveMap();
 	void loadMap();
 	void loadMapFromImage();
+	void loadTexture();
 	void updateLoop();
 	void updateHeight();
 signals:

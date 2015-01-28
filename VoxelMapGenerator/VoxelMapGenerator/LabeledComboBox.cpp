@@ -23,8 +23,7 @@ void LabeledCombobox::addItem(const char* item)
 
 int LabeledCombobox::getCurrentIndex()
 {
-	
-	return combobox->currentIndex() == 0 ? -1 : combobox->currentIndex();
+	return combobox->currentIndex() == 0 ? -1 : combobox->currentIndex() - 1;
 }
 
 void LabeledCombobox::comboboxValueChanged()
