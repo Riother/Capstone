@@ -3,17 +3,19 @@
 
 #include <GL\glew.h>
 #include <glm\glm.hpp>
+#include <Qt\qlist.h>
 
 typedef glm::vec4 Vector4;
 typedef glm::vec3 Vector3;
 
 struct Voxel
 {
-	Vector4 Color;
+	static const int MAX_HEIGHT = 100;
+	QList<Vector4> Color;
 	Vector3 Position;
-	GLuint TextureID;
+	QList<GLuint> TextureID;
 	int Height;
-	bool IsVisible;
+	QList<bool> IsVisible;
 	Voxel(Vector4 color, Vector3 position, GLuint textureID, int height, bool isVisible);
 	Voxel();
 };

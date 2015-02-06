@@ -12,24 +12,50 @@ LabeledSpinbox::LabeledSpinbox(const char* labelText, bool textOnLeft, int minRa
 
 	layout->addWidget(spinbox = new QSpinBox);
 	spinbox->setValue(value);
+	min = minRange;
+	max = maxRange;
 	spinbox->setRange(minRange, maxRange);
 	connect(spinbox, SIGNAL(valueChanged(int)), this, SLOT(spinboxValueChanged()));
 	spinboxValueChanged();
 }
 
-void LabeledSpinbox::setValue(int newValue)
+void LabeledSpinbox::setSpinboxValue(int newValue)
 {
 	spinbox->setValue(newValue);
 }
 
-int LabeledSpinbox::getValue()
+int LabeledSpinbox::getSpinboxValue()
 {
 	return spinbox->value();
 }
 
-void LabeledSpinbox::setRange(int min, int max)
+void LabeledSpinbox::setSpinboxRange(int min, int max)
 {
+	this->min = min;
+	this->max = max;
 	spinbox->setRange(min, max);
+}
+
+void LabeledSpinbox::setMinRange(int min)
+{
+	this->min = min;
+	spinbox->setMinimum(min);
+}
+
+void LabeledSpinbox::setMaxRange(int max)
+{
+	this->max = max;
+	spinbox->setMaximum( max);
+}
+
+int LabeledSpinbox::getMinRange()
+{
+	return min;
+}
+
+int LabeledSpinbox::getMaxRange()
+{
+	return max;
 }
 
 void LabeledSpinbox::spinboxValueChanged()

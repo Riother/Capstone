@@ -22,97 +22,97 @@ void Cube::createCubeVerticesAndColor()
 	vertices[10] = Vector3(+0.0f, +1.0f, +0.0f); // Normal
 	vertices[11] = Vector3(+1.0f, +0.0f, +0.0f); // UV
 	vertices[12] = Vector3(-1.0f, +1.0f, -1.0f); // 3
-	vertices[13] = Vector3(+1.0f, +1.0f, +1.0f); // Color
+	vertices[13] = Vector3(+0.0f, +1.0f, +0.0f); // Color
 	vertices[14] = Vector3(+0.0f, +1.0f, +0.0f); // Normal
 	vertices[15] = Vector3(+0.0f, +0.0f, +0.0f); // UV
 	
 	//Front
 	vertices[16] = Vector3(-1.0f, +1.0f, -1.0f); // 4
-	vertices[17] = Vector3(+1.0f, +0.0f, +1.0f); // Color
+	vertices[17] = Vector3(+1.0f, +0.0f, +0.0f); // Color
 	vertices[18] = Vector3(+0.0f, +0.0f, +1.0f); // Normal
 	vertices[19] = Vector3(+0.0f, +1.0f, +0.0f); // UV
 	vertices[20] = Vector3(+1.0f, +1.0f, -1.0f); // 5
-	vertices[21] = Vector3(+0.0f, +0.5f, +0.2f); // Color
+	vertices[21]  = Vector3(+0.0f, +1.0f, +0.0f); // Color
 	vertices[22] = Vector3(+0.0f, +0.0f, +1.0f); // Normal
 	vertices[23] = Vector3(+1.0f, +1.0f, +0.0f); // UV
 	vertices[24] = Vector3(+1.0f, -1.0f, -1.0f); // 6
-	vertices[25] = Vector3(+0.8f, +0.6f, +0.4f); // Color
+	vertices[25] = Vector3(+0.0f, +0.0f, +1.0f); // Color
 	vertices[26] = Vector3(+0.0f, +0.0f, +1.0f); // Normal
 	vertices[27] = Vector3(+1.0f, +0.0f, +0.0f); // UV
 	vertices[28] = Vector3(-1.0f, -1.0f, -1.0f); // 7
-	vertices[29] = Vector3(+0.3f, +1.0f, +0.5f); // Color
+	vertices[29] = Vector3(+0.0f, +1.0f, +0.0f); // Color
 	vertices[30] = Vector3(+0.0f, +0.0f, +1.0f); // Normal
 	vertices[31] = Vector3(+0.0f, +0.0f, +0.0f); // UV
 	
 	//Right
 	vertices[32] = Vector3(+1.0f, +1.0f, -1.0f); // 8
-	vertices[33] = Vector3(+0.2f, +0.5f, +0.2f); // Color
+	vertices[33] = Vector3(+1.0f, +0.0f, +0.0f); // Color
 	vertices[34] = Vector3(+1.0f, +0.0f, +0.0f); // Normal
 	vertices[35] = Vector3(+0.0f, +1.0f, +0.0f); // UV
 	vertices[36] = Vector3(+1.0f, +1.0f, +1.0f); // 9
-	vertices[37] = Vector3(+0.9f, +0.3f, +0.7f); // Color
+	vertices[37] = Vector3(+0.0f, +1.0f, +0.0f); // Color
 	vertices[38] = Vector3(+1.0f, +0.0f, +0.0f); // Normal
 	vertices[39] = Vector3(+1.0f, +1.0f, +0.0f); // UV
 	vertices[40] = Vector3(+1.0f, -1.0f, +1.0f); // 10
-	vertices[41] = Vector3(+0.3f, +0.7f, +0.5f); // Color
+	vertices[41] = Vector3(+0.0f, +0.0f, +1.0f); // Color
 	vertices[42] = Vector3(+1.0f, +0.0f, +0.0f); // Normal
 	vertices[43] = Vector3(+1.0f, +0.0f, +0.0f); // UV
 	vertices[44] = Vector3(+1.0f, -1.0f, -1.0f); // 11
-	vertices[45] = Vector3(+0.5f, +0.7f, +0.5f); // Color
+	vertices[45] = Vector3(+0.0f, +1.0f, +0.0f); // Color
 	vertices[46] = Vector3(+1.0f, +0.0f, +0.0f); // Normal
 	vertices[47] = Vector3(+0.0f, +0.0f, +0.0f); // UV
 	
 	//Left
 	vertices[48] = Vector3(-1.0f, +1.0f, +1.0f); // 12
-	vertices[49] = Vector3(+0.7f, +0.8f, +0.2f); // Color
+	vertices[49] = Vector3(+1.0f, +0.0f, +0.0f); // Color
 	vertices[50] = Vector3(-1.0f, +0.0f, +0.0f); // Normal
 	vertices[51] = Vector3(+0.0f, +1.0f, +0.0f); // UV
 	vertices[52] = Vector3(-1.0f, +1.0f, -1.0f); // 13
-	vertices[53] = Vector3(+0.5f, +0.7f, +0.3f); // Color
+	vertices[53] = Vector3(+0.0f, +1.0f, +0.0f); // Color
 	vertices[54] = Vector3(-1.0f, +0.0f, +0.0f); // Normal
 	vertices[55] = Vector3(+1.0f, +1.0f, +0.0f); // UV
 	vertices[56] = Vector3(-1.0f, -1.0f, -1.0f); // 14
-	vertices[57] = Vector3(+0.4f, +0.7f, +0.7f); // Color
+	vertices[57] = Vector3(+0.0f, +0.0f, +1.0f); // Color
 	vertices[58] = Vector3(-1.0f, +0.0f, +0.0f); // Normal
 	vertices[59] = Vector3(+1.0f, +0.0f, +0.0f); // UV
 	vertices[60] = Vector3(-1.0f, -1.0f, +1.0f); // 15
-	vertices[61] = Vector3(+0.2f, +0.5f, +1.0f); // Color
+	vertices[61] = Vector3(+0.0f, +1.0f, +0.0f); // Color
 	vertices[62] = Vector3(-1.0f, +0.0f, +0.0f); // Normal
 	vertices[63] = Vector3(+0.0f, +0.0f, +0.0f); // UV
 	
 	//Back
 	vertices[64] = Vector3(+1.0f, +1.0f, +1.0f); // 16
-	vertices[65] = Vector3(+0.6f, +1.0f, +0.7f); // Color
+	vertices[65] = Vector3(+1.0f, +0.0f, +0.0f); // Color
 	vertices[66] = Vector3(+0.0f, +0.0f, -1.0f); // Normal
 	vertices[67] = Vector3(+0.0f, +1.0f, +0.0f); // UV
 	vertices[68] = Vector3(-1.0f, +1.0f, +1.0f); // 17
-	vertices[69] = Vector3(+0.6f, +0.4f, +0.8f); // Color
+	vertices[69] = Vector3(+0.0f, +1.0f, +0.0f); // Color
 	vertices[70] = Vector3(+0.0f, +0.0f, -1.0f); // Normal
 	vertices[71] = Vector3(+1.0f, +1.0f, +0.0f); // UV
 	vertices[72] = Vector3(-1.0f, -1.0f, +1.0f); // 18
-	vertices[73] = Vector3(+0.2f, +0.8f, +0.7f); // Color
+	vertices[73] = Vector3(+0.0f, +0.0f, +1.0f); // Color
 	vertices[74] = Vector3(+0.0f, +0.0f, -1.0f); // Normal
 	vertices[75] = Vector3(+1.0f, +0.0f, +0.0f); // UV
 	vertices[76] = Vector3(+1.0f, -1.0f, +1.0f); // 19
-	vertices[77] = Vector3(+0.2f, +0.7f, +1.0f); // Color
+	vertices[77] = Vector3(+0.0f, +1.0f, +0.0f); // Color
 	vertices[78] = Vector3(+0.0f, +0.0f, -1.0f); // Normal
 	vertices[79] = Vector3(+0.0f, +0.0f, +0.0f); // UV
 	
 	//Bottom
 	vertices[80] = Vector3(+1.0f, -1.0f, -1.0f); // 20
-	vertices[81] = Vector3(+0.8f, +0.3f, +0.7f); // Color
+	vertices[81] = Vector3(+1.0f, +0.0f, +0.0f); // Color
 	vertices[82] = Vector3(+0.0f, -1.0f, +0.0f); // Normal
 	vertices[83] = Vector3(+0.0f, +1.0f, +0.0f); // UV
 	vertices[84] = Vector3(-1.0f, -1.0f, -1.0f); // 21
-	vertices[85] = Vector3(+0.8f, +0.9f, +0.5f); // Color
+	vertices[85] = Vector3(+0.0f, +1.0f, +0.0f); // Color
 	vertices[86] = Vector3(+0.0f, -1.0f, +0.0f); // Normal
 	vertices[87] = Vector3(+1.0f, +1.0f, +0.0f); // UV
 	vertices[88] = Vector3(-1.0f, -1.0f, +1.0f); // 22
-	vertices[89] = Vector3(+0.5f, +0.8f, +0.5f); // Color
+	vertices[89] = Vector3(+0.0f, +0.0f, +1.0f); // Color
 	vertices[90] = Vector3(+0.0f, -1.0f, +0.0f); // Normal
 	vertices[91] = Vector3(+1.0f, +0.0f, +0.0f); // UV
 	vertices[92] = Vector3(+1.0f, -1.0f, +1.0f); // 23
-	vertices[93] = Vector3(+0.9f, +1.0f, +0.2f); // Color
+	vertices[93] = Vector3(+0.0f, +1.0f, +0.0f); // Color
 	vertices[94] = Vector3(+0.0f, -1.0f, +0.0f); // Normal
 	vertices[95] = Vector3(+0.0f, +0.0f, +0.0f); // UV
 }
@@ -161,9 +161,9 @@ void Cube::createCubeIndices()
 		
 	//Bottom
 	indices[30] = 20;
-	indices[31] = 22;
-	indices[32] = 21;
+	indices[31] = 21;
+	indices[32] = 22;
 	indices[33] = 20;
-	indices[34] = 23;
-	indices[35] = 22;
+	indices[34] = 22;
+	indices[35] = 23;
 }

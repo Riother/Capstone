@@ -360,14 +360,14 @@ void RendererWindow::drawMap()
 	{
 		for(int j = 0; j < Cubes[i].Height; j++)
 		{
-			if(Cubes[i].IsVisible)
+			if(Cubes[i].IsVisible[j])
 			{
 				Matrix4 whereMatrix = glm::translate(Cubes[i].Position + Vector3(0, j, 0)) * glm::scale(glm::vec3(0.5f, 0.5f, 0.5f));
 				addRenderableUniformParameter(&renderableInfos[cubeLocation], "transformation", ParameterType::PT_MATRIX4, &(perspectiveMatrix * camera.getWorldToViewMatrix() * whereMatrix)[0][0]);
 				addRenderableUniformParameter(&renderableInfos[cubeLocation], "cameraPosition", ParameterType::PT_VECTOR3, &camera.getPosition()[0]);
-				addRenderableUniformParameter(&renderableInfos[cubeLocation], "color", ParameterType::PT_VECTOR3, &Cubes[i].Color[0]);
+				addRenderableUniformParameter(&renderableInfos[cubeLocation], "color", ParameterType::PT_VECTOR3, &Cubes[i].Color[j][0]);
 
-				if(Cubes[i].TextureID == -1)
+				if(Cubes[i].TextureID[j] == -1)
 				{
 					//dont use image
 					float useImage = 0;
@@ -379,10 +379,11 @@ void RendererWindow::drawMap()
 					float useImage = 1;
 					addRenderableUniformParameter(&renderableInfos[cubeLocation], "useImage", ParameterType::PT_FLOAT, &useImage);
 
-					glActiveTexture(Cubes[i].TextureID);
+					glActiveTexture(Cubes[i].TextureID[j]);
+					glBindTexture(GL_TEXTURE_2D, Cubes[i].TextureID[j]);
 				}
 
-				glBindTexture(GL_TEXTURE_2D, Cubes[i].TextureID);
+				
 
 				glBindVertexArray(renderableInfos[cubeLocation].whatGeometry->vertexArrayID);
 

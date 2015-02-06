@@ -35,7 +35,7 @@ class RendererWindow : public QGLWidget
 	
 	static const int MAX_INFOS = 10;
 	static const int MAX_RENDERABLES = 1000;
-	static const int MAX_CUBES = 5000;
+	static const int MAX_CUBES = 1000000;
 	static const int MAX_DIMENSION_VALUE = 10;
 	Voxel Cubes[MAX_CUBES];
 	int cubeCount;

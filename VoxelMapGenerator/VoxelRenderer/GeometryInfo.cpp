@@ -5,7 +5,7 @@ GeometryInfo::GeometryInfo()
 	isAvailable = true;
 }
 
-GeometryInfo::GeometryInfo(GLuint offset, uint numIndices, GLuint indexOffset, GLuint indexingMode, ushort* indices, unsigned int bufferID)
+GeometryInfo::GeometryInfo(GLuint offset, unsigned int numIndices, GLuint indexOffset, GLuint indexingMode, unsigned short* indices, unsigned int bufferID)
 {
 	this->offset = offset;
 	this->numIndices = numIndices;

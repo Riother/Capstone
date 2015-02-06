@@ -10,8 +10,8 @@ typedef glm::vec3 Vector3;
 
 struct Cube
 {
-	static const uint SIZE = 138;
-	static const uint AMOUNT_OF_VERTICES = 36;
+	static const glm::uint SIZE = 138;
+	static const glm::uint AMOUNT_OF_VERTICES = 36;
 
 	Vector3 vertices[SIZE];
 	ushort indices[AMOUNT_OF_VERTICES];

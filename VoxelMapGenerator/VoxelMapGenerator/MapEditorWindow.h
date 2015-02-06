@@ -11,6 +11,7 @@
 #include <QtGui\qfiledialog.h>
 #include <Qt\qtimer.h>
 #include <Qt\qinputdialog.h>
+#include <Qt\qmessagebox.h>
 #include "RendererWindow.h"
 #include "ParameterType.h"
 #include "Cube.h"
@@ -21,6 +22,7 @@
 #include "EditorWidget.h"
 #include "VoxelGroup.h"
 #include "Voxel.h"
+#include "NoiseMapCreatorWidget.h"
 #include "fstream"
 #include "iostream"
 
@@ -35,11 +37,13 @@ private:
 	QTimer timer;
 	Q_OBJECT
 
-	static const int MAX_CUBES = 5000;
-	static const int MAX_DIMENSION_VALUE = 10;
+	static const long MAX_CUBES = 10000;
+	static const int MAX_DIMENSION_VALUE = 100;
 
 	QWidget* mainWidget;
+	QTabWidget* mapOrGameEditor;
 	QTabWidget* tabWidget;
+	QTabWidget* gameWidget;
 
 	QHBoxLayout* mainLayout;
 	QVBoxLayout* tabsLayout;
@@ -57,6 +61,7 @@ private:
 	int cubeCount;
 	int actionCount;
 	bool isVisible;
+	bool mapWasLoaded;
 private slots:
 	void newProject();
 	void openProject();
@@ -66,7 +71,9 @@ private slots:
 	void loadMapFromImage();
 	void loadTexture();
 	void updateLoop();
+	void updateColors();
 	void updateHeight();
+	void updateTexture();
 signals:
 	void triggered();
 public:
@@ -75,6 +82,7 @@ public:
 protected:
 	void keyPressEvent(QKeyEvent* e);
 	void keyReleaseEvent(QKeyEvent* e);
+	void newMap();
 };
 
 #endif

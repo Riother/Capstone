@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'EditorWidget.h'
 **
-** Created: Tue Jan 27 00:32:42 2015
+** Created: Tue Feb 3 18:46:03 2015
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,23 +23,25 @@ static const uint qt_meta_data_EditorWidget[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       4,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       14,   13,   13,   13, 0x05,
       29,   13,   13,   13, 0x05,
       51,   13,   13,   13, 0x05,
+      67,   13,   13,   13, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      67,   13,   13,   13, 0x08,
-      85,   13,   13,   13, 0x08,
+      82,   13,   13,   13, 0x08,
      100,   13,   13,   13, 0x08,
-     112,   13,   13,   13, 0x08,
+     115,   13,   13,   13, 0x08,
+     127,   13,   13,   13, 0x08,
+     143,   13,   13,   13, 0x08,
 
        0        // eod
 };
@@ -47,8 +49,9 @@ static const uint qt_meta_data_EditorWidget[] = {
 static const char qt_meta_stringdata_EditorWidget[] = {
     "EditorWidget\0\0valueChanged()\0"
     "currentIndexChanged()\0heightChanged()\0"
-    "updateSpinboxes()\0updateHeight()\0"
-    "keyUpdate()\0updateTexture()\0"
+    "colorChanged()\0updateSpinboxes()\0"
+    "updateHeight()\0keyUpdate()\0updateTexture()\0"
+    "updateColors()\0"
 };
 
 void EditorWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -60,10 +63,12 @@ void EditorWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 0: _t->valueChanged(); break;
         case 1: _t->currentIndexChanged(); break;
         case 2: _t->heightChanged(); break;
-        case 3: _t->updateSpinboxes(); break;
-        case 4: _t->updateHeight(); break;
-        case 5: _t->keyUpdate(); break;
-        case 6: _t->updateTexture(); break;
+        case 3: _t->colorChanged(); break;
+        case 4: _t->updateSpinboxes(); break;
+        case 5: _t->updateHeight(); break;
+        case 6: _t->keyUpdate(); break;
+        case 7: _t->updateTexture(); break;
+        case 8: _t->updateColors(); break;
         default: ;
         }
     }
@@ -102,9 +107,9 @@ int EditorWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 9;
     }
     return _id;
 }
@@ -125,5 +130,11 @@ void EditorWidget::currentIndexChanged()
 void EditorWidget::heightChanged()
 {
     QMetaObject::activate(this, &staticMetaObject, 2, 0);
+}
+
+// SIGNAL 3
+void EditorWidget::colorChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 3, 0);
 }
 QT_END_MOC_NAMESPACE

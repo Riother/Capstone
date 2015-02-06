@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'MapDimensionsWidget.h'
 **
-** Created: Wed Jan 14 17:44:42 2015
+** Created: Mon Feb 2 20:40:06 2015
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,25 +23,26 @@ static const uint qt_meta_data_MapDimensionsWidget[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       21,   20,   20,   20, 0x05,
+      36,   20,   20,   20, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      36,   20,   20,   20, 0x08,
+      58,   20,   20,   20, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_MapDimensionsWidget[] = {
     "MapDimensionsWidget\0\0valueChanged()\0"
-    "updateSpinboxes()\0"
+    "spinboxValueChanged()\0updateSpinboxes()\0"
 };
 
 void MapDimensionsWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -51,7 +52,8 @@ void MapDimensionsWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         MapDimensionsWidget *_t = static_cast<MapDimensionsWidget *>(_o);
         switch (_id) {
         case 0: _t->valueChanged(); break;
-        case 1: _t->updateSpinboxes(); break;
+        case 1: _t->spinboxValueChanged(); break;
+        case 2: _t->updateSpinboxes(); break;
         default: ;
         }
     }
@@ -90,9 +92,9 @@ int MapDimensionsWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 3;
     }
     return _id;
 }
@@ -101,5 +103,11 @@ int MapDimensionsWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 void MapDimensionsWidget::valueChanged()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, 0);
+}
+
+// SIGNAL 1
+void MapDimensionsWidget::spinboxValueChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, 0);
 }
 QT_END_MOC_NAMESPACE

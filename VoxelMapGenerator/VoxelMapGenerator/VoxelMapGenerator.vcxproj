@@ -44,12 +44,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\Middleware\Qt\include;$(SolutionDir)..\Middleware\glew\include;$(SolutionDir)..\Middleware\glm;$(SolutionDir)VoxelRenderer;$(SolutionDir)..\Middleware\NeumontTools\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\Middleware\Qt\include;$(SolutionDir)..\Middleware\glew\include;$(SolutionDir)..\Middleware\glm;$(SolutionDir)VoxelRenderer;$(SolutionDir)..\Middleware\NeumontTools\include;$(SolutionDir)..\Middleware\LibNoise\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\Middleware\Qt\lib;$(SolutionDir)..\Middleware\glew\lib;$(SolutionDir)\Debug;$(SolutionDir)..\Middleware\NeumontTools\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>QtGuid4.lib;QtCored4.lib;QtOpenGLd4.lib;glew32d.lib;opengl32.lib;NeumontTools.lib;VoxelRenderer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\Middleware\Qt\lib;$(SolutionDir)..\Middleware\glew\lib;$(SolutionDir)\Debug;$(SolutionDir)..\Middleware\NeumontTools\lib;$(SolutionDir)..\Middleware\LibNoise\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>QtGuid4.lib;QtCored4.lib;QtOpenGLd4.lib;glew32d.lib;opengl32.lib;NeumontTools.lib;VoxelRenderer.lib;libnoise.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -79,9 +79,13 @@
     <ClCompile Include="MapDimensionsWidget_moc.cpp" />
     <ClCompile Include="MapEditorWindow.cpp" />
     <ClCompile Include="MapEditorWindow_moc.cpp" />
+    <ClCompile Include="NoiseMapCreatorWidget.cpp" />
+    <ClCompile Include="NoiseMapCreatorWidget_moc.cpp" />
+    <ClCompile Include="noiseutils.cpp" />
     <ClCompile Include="VoxelGroup.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CharacterEditor.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="EditorWidget.h" />
     <ClInclude Include="LabeledComboBox.h" />
@@ -89,6 +93,8 @@
     <ClInclude Include="MapDimensionsWidget.h" />
     <ClInclude Include="MapEditorWindow.h" />
     <ClInclude Include="Menus.h" />
+    <ClInclude Include="NoiseMapCreatorWidget.h" />
+    <ClInclude Include="noiseutils.h" />
     <ClInclude Include="VoxelGroup.h" />
   </ItemGroup>
   <ItemGroup>
